@@ -1,0 +1,8 @@
+#! /bin/bash
+TIME=$(date)
+if [[ "$(ping -c 1 8.8.8.8 | grep '100.0% packet loss' )" != "" ]]; then
+	networksetup -setairportpower en0 off && networksetup -setairportpower en0 on
+	echo "$TIME: Resetting wifi"
+else
+	echo "$TIME: Wifi working fine"
+fi

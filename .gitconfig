@@ -1,0 +1,39 @@
+[credential]
+	helper = osxkeychain
+
+[color]
+	ui = auto
+
+[alias]
+	st = status -sb
+	ci = commit -m
+	cia = commit -am
+	cs = "!f() { EDITOR=vim git commit --author=\""${1}" <$(git config user.email)>\" -e -m \"$(cat ~/.git_commit_msg.txt | sed 's/DDD/\\[#'$2'\\]/g')\"; }; f"
+	co = checkout
+	br = branch
+	ps = push
+	p  = pull
+	prb = pull -r
+	prbm = pull --rebase origin master
+	pb = "!f() { git push -u origin $(git rev-parse --abbrev-ref HEAD); }; f"
+	a = add -A
+	ap = add -p
+	l = log --graph --abbrev-commit --date=relative
+	ll = log --graph --abbrev-commit --date=relative --name-status
+	lp = log --graph --abbrev-commit --date=relative -p
+	boom = clean -fd
+	r = reset HEAD
+	dc = diff --cached
+	d = diff
+	db = !git branch | cut -d ' ' -f 3 | xargs git branch -D | git co master
+
+[push]
+	default = simple
+
+[format]
+	pretty=format:%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset
+[core]
+	excludesfile = /Users/ygorbruxel/.gitignore
+	pager = diff-so-fancy | less --tabs=4 -R
+[commit]
+	template = /Users/ygorbruxel/.git_commit_msg.txt
