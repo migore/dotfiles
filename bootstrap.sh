@@ -6,6 +6,6 @@ ln -s "$PWD/.gitconfig" "$HOME/.gitconfig"
 ln -s "$PWD/.gitignore" "$HOME/.gitignore"
 ln -s "$PWD/.vimrc" "$HOME/.vimrc"
 ln -s "$PWD/.myzshrc" "$HOME/.myzshrc"
-ln -s "$PWD/.tmux.cong" "$HOME/.tmux.cong"
+ln -s "$PWD/.tmux.conf" "$HOME/.tmux.conf"
 
 ln -s "$PWD/bin" "$HOME/bin"
